@@ -1,0 +1,314 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Urbanist','Montserrat',sans-serif;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background: #23242a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.box
+{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: #1c1c1c;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.box::before{
+    content: " ";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(0deg, transparent, transparent, #45f3ff,#45f3ff,#45f3ff);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+.box::after{
+    content: " ";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(0deg, transparent, transparent, #45f3ff,#45f3ff,#45f3ff);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.borderline{
+    position: absolute;
+    top: 0px;
+    inset: 0;
+}
+.borderline::before{
+    content: " ";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -1.5s;
+}
+
+.borderline::after{
+    content: " ";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -4.5s;
+}
+.container{
+    position: absolute;
+    inset: 4px;
+    background:#222;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+  flex-direction: column;
+  align-items: center;  
+  max-width: 500px;     
+  margin: 0 auto;       
+  padding: 20px;
+  gap: 20px;
+}
+.container h1{
+    font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(90deg, #fff, #e0e0e0);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+#question-container{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 5px;
+    flex-direction: column;
+    height: 100%;
+}
+
+#question-container h2{
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+#options-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+#options-form label.option {
+    display: flex;
+    align-items: center;
+    background-color: #2a2d34;
+    padding: 14px 20px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    color: #f0f0f0;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Hover effect */
+#options-form label.option:hover {
+    background-color: #353841;
+    border-color: #45f3ff;
+}
+
+/* Hide radio buttons */
+#options-form input[type="radio"] {
+    display: none;
+}
+
+/* Selected option style */
+#options-form input[type="radio"]:checked + span {
+    background-color: #1c1c1c;
+    color: #45f3ff;
+    border: 2px solid #45f3ff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+#options-form span {
+    flex: 1;
+    display: block;
+}
+#btns {
+    width: 100%;
+    display: flex;
+    justify-content: center;        
+    gap: 16px;                      
+    flex-wrap: wrap;                
+    margin-top: 20px;
+}
+.btn{
+    background-color: #000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+.hidden{
+    color: #45f3ff;
+    position: absolute;
+    bottom: 10%;
+    font-size: large;
+    display: none;
+}
+p, #score{
+    font-size: 40px;
+    background: linear-gradient(60deg,#45f3ff,#ff2770);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#options-form label.option {
+    display: block;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    background: #2c2f36;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    color: #f0f0f0;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+#options-form label.option:hover {
+    background: #373b44;
+    border-color: #45f3ff;
+}
+
+#options-form input[type="radio"] {
+    display: none;
+}
+
+#options-form input[type="radio"]:checked + span {
+    display: block;
+    border: 2px solid #45f3ff;
+    background-color: #111;
+    color: #45f3ff;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+@media (max-width: 375px) {
+    .box {
+      width: 100%;
+      height: auto;
+      padding: 12px 0;
+      margin-top: 20px;
+      border-radius: 6px;
+    }
+  
+    .box::before,
+    .box::after,
+    .borderline::before,
+    .borderline::after {
+      width: 100vw;
+      height: 100vw;
+    }
+  
+    .container {
+      padding: 12px;
+      max-width: 95%;
+      gap: 16px;
+    }
+  
+    .container h1 {
+      font-size: 20px;
+      line-height: 1.3;
+    }
+  
+    #question-container h2 {
+      font-size: 16px;
+      padding: 0 4px;
+      line-height: 1.4;
+    }
+  
+    #options-form label.option {
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+  
+    #options-form input[type="radio"]:checked + span {
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+  
+    #btns {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      margin-top: 16px;
+    }
+  
+    .btn {
+      width: 100%;
+      max-width: 280px;
+      font-size: 15px;
+      padding: 10px 0;
+    }
+  
+    .hidden {
+      font-size: 14px;
+      bottom: 5%;
+      text-align: center;
+    }
+  
+    p, #score {
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+  
